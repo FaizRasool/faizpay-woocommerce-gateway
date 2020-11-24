@@ -1,0 +1,21 @@
+{
+  "name": "faizrasool/faizpay-payment-gateway",
+  "description": "FaizPay Payment Gateway",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Faiz Rasool",
+      "email": "faiz@faizpay.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "firebase/php-jwt": "^5.2",
+    "ramsey/uuid": "^4.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "FaizPay\\": "./FaizPay"
+    }
+  }
+}
