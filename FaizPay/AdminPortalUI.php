@@ -13,8 +13,12 @@ class AdminPortalUI
         <table class="form-table">
             <?= $settings; ?>
         </table>
-        <h4>Payment Notification Url: <?= home_url('/wc-api/faizpay'); ?></h4>
-        <h4>Redirect Url: <?= home_url('/checkout/order-received/'); ?></h4>
+
+        <h4>Payment Notification URL</h4>
+        <pre><?= home_url('/wc-api/faizpay', 'https'); ?></pre>
+
+        <h4>Redirect URL</h4>
+        <pre><?= home_url('/checkout/order-received/', 'https'); ?></pre>
         <?php
     }
 }

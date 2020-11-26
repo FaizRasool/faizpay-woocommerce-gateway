@@ -23,6 +23,8 @@ final class FaizPayPaymentGateway extends WC_Payment_Gateway
             'products'
         );
 
+        $this->countries = ['GB'];
+
         $this->init_form_fields();
         $this->init_settings();
 
@@ -33,6 +35,8 @@ final class FaizPayPaymentGateway extends WC_Payment_Gateway
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
         add_action('woocommerce_api_faizpay', array($this, 'webhook'));
 
+        // https://rudrastyh.com/woocommerce/payment-gateway-plugin.html#gateway_options
+        // https://rudrastyh.com/woocommerce/thank-you-page.html
         //add_filter('woocommerce_endpoint_order-received_title', [$this, 'thank_you_title']);
         //add_filter('woocommerce_thankyou_order_received_text', [$this, 'thank_you_text']);
     }
@@ -67,8 +71,4 @@ final class FaizPayPaymentGateway extends WC_Payment_Gateway
     {
         PaymentNotification::process($this->terminal_id, $this->terminal_secret);
     }
-
-
-
-
 }

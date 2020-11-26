@@ -15,7 +15,7 @@
   },
   "autoload": {
     "psr-4": {
-      "FaizPay\\": "./FaizPay"
+      "FaizPay\\": "FaizPay"
     }
   }
 }

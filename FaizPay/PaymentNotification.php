@@ -51,8 +51,8 @@ class PaymentNotification
         }
 
         $order->add_order_note("FaizPay Order ID#{$decodedData['id']}", 0);
-        $order->add_order_note("FaizPay Net Amount# £{$decodedData['netAmount']}", 0);
-        $order->add_order_note("FaizPay Requested Amount# £{$decodedData['requestAmount']}", 0);
+        $order->add_order_note("FaizPay Net Amount £{$decodedData['netAmount']}", 0);
+        $order->add_order_note("FaizPay Requested Amount £{$decodedData['requestAmount']}", 0);
         $order->payment_complete();
         exit();
     }
