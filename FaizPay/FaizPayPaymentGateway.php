@@ -2,7 +2,7 @@
 
 namespace FaizPay;
 
-use \WC_Payment_Gateway;
+use WC_Payment_Gateway;
 
 final class FaizPayPaymentGateway extends WC_Payment_Gateway
 {

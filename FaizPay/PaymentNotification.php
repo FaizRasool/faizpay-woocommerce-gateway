@@ -4,7 +4,8 @@
 namespace FaizPay;
 
 
-use Firebase\JWT\JWT;
+use FaizPay\PaymentSDK\Connection;
+use FaizPay\PaymentSDK\NotificationHandler;
 
 class PaymentNotification
 {
@@ -15,44 +16,29 @@ class PaymentNotification
             die();
         }
 
-        $decodedData = JWT::decode($_POST['token'],
-            $terminal_secret,
-            ['HS512']
-        );
+        $connection = new Connection($terminal_id, $terminal_secret);
+        $notificationHandler = new NotificationHandler($connection, $_POST['token']);
 
-        if (!$decodedData instanceof \stdClass) {
+        // validate the given token
+        if (!$notificationHandler->isValidToken()) {
             die();
         }
-        $decodedData = json_decode(json_encode($decodedData), true);
 
-        if (
-            !isset($decodedData['id']) ||
-            !isset($decodedData['orderID']) ||
-            !isset($decodedData['requestAmount']) ||
-            !isset($decodedData['netAmount']) ||
-            !isset($decodedData['terminal'])
-        ) {
-            die();
-        }
-        $order = new \WC_Order($decodedData['orderID']);
+        $orderId = $notificationHandler->getOrderID();
+
+        $order = new \WC_Order($orderId);
 
         if ($order->get_id() == '') {
             die();
         }
 
-        // verify the terminal
-        if ($decodedData['terminal'] != $terminal_id) {
+        if (!$notificationHandler->validatePayment($order->get_total())) {
             die();
         }
 
-        if ($order->get_total() !=
-            number_format($decodedData['requestAmount'], 2, '.', "")) {
-            die();
-        }
-
-        $order->add_order_note("FaizPay Order ID#{$decodedData['id']}", 0);
-        $order->add_order_note("FaizPay Net Amount £{$decodedData['netAmount']}", 0);
-        $order->add_order_note("FaizPay Requested Amount £{$decodedData['requestAmount']}", 0);
+        $order->add_order_note("FaizPay Order ID {$notificationHandler->getId()}", 0);
+        $order->add_order_note("FaizPay Net Amount £{$notificationHandler->getNetAmount()}", 0);
+        $order->add_order_note("FaizPay Requested Amount £{$notificationHandler->getRequestedAmount()}", 0);
         $order->payment_complete();
         exit();
     }

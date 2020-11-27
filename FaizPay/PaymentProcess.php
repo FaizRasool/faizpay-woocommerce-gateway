@@ -4,7 +4,9 @@
 namespace FaizPay;
 
 
-use Firebase\JWT\JWT;
+use FaizPay\PaymentSDK\Connection;
+use FaizPay\PaymentSDK\Payment;
+use FaizPay\PaymentSDK\User;
 
 class PaymentProcess
 {
@@ -14,22 +16,28 @@ class PaymentProcess
         global $woocommerce;
 
         $order = new \WC_Order($order_id);
-        $nowSeconds = time();
 
-        $payload = [
-            'terminalID' => $terminal_id,
-            'orderID' => $order_id,
-            'amount' => $order->get_total(),
-            'email' => $order->get_billing_email(),
-            'firstName' => $order->get_billing_email(),
-            'lastName' => $order->get_billing_last_name(),
-            'contactNumber' => $order->get_billing_phone(),
-            'iat' => $nowSeconds,
-            'exp' => $nowSeconds + (60 * 120) // 2 hours
-        ];
+        $connection = new Connection(
+            $terminal_id,
+            $terminal_secret
+        );
 
-        $token = JWT::encode($payload, $terminal_secret, 'HS512');
-        $url = 'https://faizpay-staging.netlify.app/pay?token=' . $token;
+        $payment = new Payment(
+            $connection,
+            $order_id,
+            $order->get_total()
+        );
+
+        $user = new User();
+        $user->setEmail($order->get_billing_email());
+        $user->setFirstName($order->get_billing_email());
+        $user->setLastName($order->get_billing_last_name());
+        $user->setContactNumber($order->get_billing_phone());
+
+        // payment object
+        $payment->setUser($user);
+
+        $url = $payment->process($redirectBrowser = false);
 
         $order->update_status('awaiting_payment', 'Awaiting payment');
 
