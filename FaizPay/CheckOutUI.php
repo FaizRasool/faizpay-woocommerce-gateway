@@ -21,6 +21,7 @@ class CheckOutUI
                 max-height: 170px !important;
                 display: block !important;
                 min-height: 170px !important;
+                text-align: center;
             }
 
             #fp-image {
