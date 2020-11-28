@@ -13,7 +13,7 @@ class CheckOutUI
         <img src="<?= $button; ?>"
              id="fp-image"/>
         <style>
-            .payment_method_faizpay_payment {
+            div.payment_method_faizpay_payment {
                 background: transparent !important;
                 padding: 0px !important;
                 width: 100% !important;
@@ -30,7 +30,7 @@ class CheckOutUI
                 width: 250px !important;
                 height: 150px !important;
                 max-height: 150px !important;
-                display: block !important;
+                display: inline-block !important;
                 min-height: 150px !important;
                 float: none !important;
             }
