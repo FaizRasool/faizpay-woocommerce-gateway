@@ -10,8 +10,7 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "firebase/php-jwt": "^5.2",
-    "ramsey/uuid": "^4.1"
+    "faizpay/php-payment-sdk": "dev-master"
   },
   "autoload": {
     "psr-4": {
