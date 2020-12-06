@@ -68,13 +68,7 @@ final class FaizPayPaymentGateway extends WC_Payment_Gateway
 
     public function get_icon()
     {
-        $icon_html = '';
-        $providers = array('barclays', 'hsbc', 'lloyds', 'starling', 'natwest', 'santander');
-        foreach ($providers as $provider) {
-            $url = \WC_HTTPS::force_https_url(plugin_dir_url(dirname(__FILE__, 1)) . 'assets/' . $provider . '.svg');
-            $icon_html .= '<img width="26" src="' . esc_attr($url) . '" alt="' . esc_attr($provider) . '" />';
-        }
-        return apply_filters('woocommerce_gateway_icon', $icon_html, $this->id);
+        return CheckoutIcon::get($this->id);
     }
 
     public function webhook()
