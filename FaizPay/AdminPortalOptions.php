@@ -35,7 +35,7 @@ class AdminPortalOptions
                 'title' => 'Title',
                 'type' => 'text',
                 'description' => 'This controls the title which the user sees during checkout.',
-                'default' => 'LLoyds, Barclays, Starling and other banks',
+                'default' => 'Instant Bank Transfer - Supports most of the U.K banks',
                 'desc_tip' => true,
             ),
             'description' => array(
