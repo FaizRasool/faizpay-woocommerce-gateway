@@ -5,6 +5,7 @@ namespace FaizPay;
 
 
 use FaizPay\PaymentSDK\Connection;
+use FaizPay\PaymentSDK\Error;
 use FaizPay\PaymentSDK\NotificationHandler;
 
 class PaymentNotification
@@ -16,11 +17,13 @@ class PaymentNotification
             die();
         }
 
-        $connection = new Connection($terminal_id, $terminal_secret);
-        $notificationHandler = new NotificationHandler($connection, $_POST['token']);
+        $connection = Connection::createConnection($terminal_id, $terminal_secret);
+        if ($connection instanceof Error) {
+            die();
+        }
 
-        // validate the given token
-        if (!$notificationHandler->isValidToken()) {
+        $notificationHandler = NotificationHandler::createNotificationHandler($connection, $_POST['token']);
+        if ($notificationHandler instanceof Error) {
             die();
         }
 
@@ -32,7 +35,7 @@ class PaymentNotification
             die();
         }
 
-        if (!$notificationHandler->validatePayment($order->get_total())) {
+        if (!$notificationHandler->validateAmount($order->get_total())) {
             die();
         }
 

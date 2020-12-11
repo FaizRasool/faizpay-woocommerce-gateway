@@ -5,6 +5,7 @@ namespace FaizPay;
 
 
 use FaizPay\PaymentSDK\Connection;
+use FaizPay\PaymentSDK\Error;
 use FaizPay\PaymentSDK\Payment;
 use FaizPay\PaymentSDK\User;
 
@@ -17,22 +18,43 @@ class PaymentProcess
 
         $order = new \WC_Order($order_id);
 
-        $connection = new Connection(
+        $connection = Connection::createConnection(
             $terminal_id,
             $terminal_secret
         );
 
-        $payment = new Payment(
+        if ($connection instanceof Error) {
+            return array(
+                'result'   => 'failure',
+                'messages' => 'Something went wrong. Please contact support.'
+            );
+        }
+
+        $payment = Payment::createPayment(
             $connection,
             $order_id,
             $order->get_total()
         );
 
-        $user = new User();
-        $user->setEmail($order->get_billing_email());
-        $user->setFirstName($order->get_billing_email());
-        $user->setLastName($order->get_billing_last_name());
-        $user->setContactNumber($order->get_billing_phone());
+        if ($payment instanceof Error) {
+            return array(
+                'result'   => 'failure',
+                'messages' => 'Something went wrong. Please contact support.'
+            );
+        }
+
+        $user = User::createUser($order->get_billing_email(),
+            $order->get_billing_first_name(),
+            $order->get_billing_last_name(),
+            $order->get_billing_phone()
+        );
+
+        if ($user instanceof Error) {
+            return array(
+                'result'   => 'failure',
+                'messages' => 'Something went wrong. Please contact support.'
+            );
+        }
 
         // payment object
         $payment->setUser($user);
