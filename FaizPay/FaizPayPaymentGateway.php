@@ -41,8 +41,18 @@ final class FaizPayPaymentGateway extends WC_Payment_Gateway
 
         // https://rudrastyh.com/woocommerce/payment-gateway-plugin.html#gateway_options
         // https://rudrastyh.com/woocommerce/thank-you-page.html
-        //add_filter('woocommerce_endpoint_order-received_title', [$this, 'thank_you_title']);
-        //add_filter('woocommerce_thankyou_order_received_text', [$this, 'thank_you_text']);
+        add_filter('woocommerce_endpoint_order-received_title', [$this, 'redirect_end_point_title']);
+        add_filter('woocommerce_thankyou_order_received_text', [$this, 'redirect_end_point_text']);
+    }
+
+    public function redirect_end_point_title($text)
+    {
+        return OrderComplete::title($text);
+    }
+
+    public function redirect_end_point_text($text)
+    {
+        return OrderComplete::title($text);
     }
 
     public function init_form_fields()

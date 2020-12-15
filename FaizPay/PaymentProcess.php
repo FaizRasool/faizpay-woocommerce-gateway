@@ -14,8 +14,6 @@ class PaymentProcess
 
     public static function process($order_id, $terminal_id, $terminal_secret)
     {
-        global $woocommerce;
-
         $order = new \WC_Order($order_id);
 
         $connection = Connection::createConnection(
@@ -62,9 +60,6 @@ class PaymentProcess
         $url = $payment->process($redirectBrowser = false);
 
         $order->update_status('awaiting_payment', 'Awaiting payment');
-
-        // Remove cart
-        $woocommerce->cart->empty_cart();
 
         return array(
             'result' => 'success',
