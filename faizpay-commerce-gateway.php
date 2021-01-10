@@ -26,7 +26,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with FaizPay Commerce Plugin. If not, see https://www.gnu.org/licenses/gpl-3.0.html.
 */
-
 //  auto load
 if (!file_exists(plugin_dir_path(__FILE__) . 'vendor/autoload.php')) {
     die;
@@ -50,12 +49,12 @@ function woocommerce_gateway_faizpay_init()
     add_filter('woocommerce_payment_gateways', 'addFaizPayPaymentGateway');
     function addFaizPayPaymentGateway($gateways)
     {
-        $gateways[] = 'FaizPay\\FaizPayPaymentGateway';
+        $gateways[] = 'FaizPayCommerceGateway\\FaizPayPaymentGateway';
         return $gateways;
     }
 
 
-    require plugin_dir_path(__FILE__) . "FaizPay/FaizPayPaymentGateway.php";
+    require plugin_dir_path(__FILE__) . "src/FaizPayPaymentGateway.php";
 }
 
 

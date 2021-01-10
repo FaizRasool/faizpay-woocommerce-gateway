@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FaizPay;
+namespace FaizPayCommerceGateway;
 
 
 use FaizPay\PaymentSDK\Connection;
@@ -15,7 +15,6 @@ class PaymentProcess
     public static function process($order_id, $terminal_id, $terminal_secret)
     {
         $order = new \WC_Order($order_id);
-
         $connection = Connection::createConnection(
             $terminal_id,
             $terminal_secret
@@ -27,7 +26,6 @@ class PaymentProcess
                 'messages' => 'Something went wrong. Please contact support.'
             );
         }
-
         $payment = Payment::createPayment(
             $connection,
             $order_id,

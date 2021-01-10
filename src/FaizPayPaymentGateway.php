@@ -1,6 +1,6 @@
 <?php
 
-namespace FaizPay;
+namespace FaizPayCommerceGateway;
 
 use WC_Payment_Gateway;
 

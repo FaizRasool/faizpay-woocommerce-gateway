@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FaizPay;
+namespace FaizPayCommerceGateway;
 
 
 class AdminPortalUI
