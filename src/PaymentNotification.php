@@ -17,12 +17,14 @@ class PaymentNotification
             die();
         }
 
+        $token  = sanitize_text_field($_POST['token']);
+
         $connection = Connection::createConnection($terminal_id, $terminal_secret);
         if ($connection instanceof Error) {
             die();
         }
 
-        $notificationHandler = NotificationHandler::createNotificationHandler($connection, $_POST['token']);
+        $notificationHandler = NotificationHandler::createNotificationHandler($connection, $token);
         if ($notificationHandler instanceof Error) {
             die();
         }

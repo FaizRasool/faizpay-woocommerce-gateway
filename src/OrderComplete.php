@@ -33,7 +33,7 @@ class OrderComplete
 
     private static function checkOrderStatus()
     {
-        $status = isset($_GET['status']) ? $_GET['status'] : "rejected";
+        $status = isset($_GET['status']) ? sanitize_text_field($_GET['status']) : "rejected";
         if ($status == 'executed') {
             return true;
         }
