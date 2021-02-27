@@ -10,6 +10,20 @@ class OrderComplete
     {
         global $woocommerce;
 
+        $orderID = self::getOrderId();
+        $order = wc_get_order($orderID);
+
+        $orderData = wc_get_order($order);
+
+        if($orderData === false){
+            return $old;
+        }
+
+        $paymentMethod = $orderData->get_payment_method();
+        if ($paymentMethod != 'faizpay_payment') {
+            return $old;
+        }
+
         if (self::checkOrderStatus()) {
             // Remove cart items
             $woocommerce->cart->empty_cart();
@@ -38,5 +52,10 @@ class OrderComplete
             return true;
         }
         return false;
+    }
+
+    private static function getOrderId()
+    {
+        return isset($_GET['order']) ? sanitize_text_field($_GET['order']) : "0";
     }
 }
