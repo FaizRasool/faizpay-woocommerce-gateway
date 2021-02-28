@@ -76,8 +76,7 @@ class PaymentProcess
         foreach ($order->get_items() as $item) {
             $item = Item::createItem(
                 $item->get_name(),
-                $item->get_quantity(),
-                NumberFormatter::formatNumber($item->get_total())
+                $item->get_quantity()
             );
             if ($item instanceof Item) {
                 $payment->addItem($item);
@@ -87,9 +86,15 @@ class PaymentProcess
         // add delivery address
         if ($order->get_shipping_address_1() != '') {
             $country = $order->get_billing_country();
+
             if ($country == 'GB') {
                 $country = 'UK';
             }
+
+            if (strlen($country) != '2') {
+                $country = 'UK';
+            }
+
             $deliveryAddress = DeliveryAddress::createDeliveryAddress(
                 $order->get_shipping_address_1(),
                 $order->get_shipping_address_2(),
@@ -99,9 +104,15 @@ class PaymentProcess
             );
         } else {
             $country = $order->get_billing_country();
+
             if ($country == 'GB') {
                 $country = 'UK';
             }
+
+            if (strlen($country) != '2') {
+                $country = 'UK';
+            }
+
             $deliveryAddress = DeliveryAddress::createDeliveryAddress(
                 $order->get_billing_address_1(),
                 $order->get_billing_address_2(),

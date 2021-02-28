@@ -3,8 +3,8 @@ Contributors: Faiz Rasool
 Plugin URL: https://github.com/FaizRasool/faizpay-woocommerce-gateway
 Tags: faizpay, woo, woocommerce, ecommerce, commerce, bank, HSBC, Barclay, Royal Bank of Scotland, RBS, Lloyds, Santander, Nationwide, Natwest
 Requires at least: 3.0
-Requires PHP: 5.6
-Tested up to: 5.6
+Requires PHP: 7.0
+Tested up to: 8.0
 Stable tag: 1.1.4
 License: GPLv2 or later
 

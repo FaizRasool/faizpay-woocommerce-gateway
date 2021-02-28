@@ -3,7 +3,7 @@
 Plugin Name:       FaizPay Commerce
 Plugin URI:        https://github.com/FaizRasool/faizpay-woocommerce-gateway
 Description:       Enables the FaizPay as payment option on the woocommerce.
-Version:           1.0.7
+Version:           1.0.9
 WC requires at least: 3.0
 WC tested up to: 5.6
 Author:            FaizPay
