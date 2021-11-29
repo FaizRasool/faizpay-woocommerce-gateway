@@ -1,4 +1,4 @@
-=== FaizPay Payment Gateway for WooCommerce ===
+=== fena Payment Gateway for WooCommerce By fena ===
 Contributors: Faiz Rasool
 Plugin URL: https://github.com/fena-co/faizpay-woocommerce-gateway
 Tags: fena, faizpay, woo, woocommerce, ecommerce, commerce, bank, HSBC, Barclay, Royal Bank of Scotland, RBS, Lloyds, Santander, Nationwide, Natwest
@@ -10,7 +10,8 @@ License: GPLv2 or later
 
 == Description ==
 
-Accept instant bank transfers through Fena on your WooCommerce store.
+Accept instant bank transfers through fena on your WooCommerce store.
+Currently available in the UK.
 
 == Installation ==
 
