@@ -15,4 +15,4 @@ This plugin is available on the [WordPress.org plugin repository], and can be in
 
 ### SVN Commands
 svn add --force * --auto-props --parents --depth infinity -q
-svn commit -m '1.0.8 update'
+svn commit -m '1.0.11 update'

@@ -3,7 +3,7 @@
 Plugin Name:       Fena Commerce
 Plugin URI:        https://github.com/fena-co/faizpay-woocommerce-gateway
 Description:       Enables the Fena as payment option on the woocommerce.
-Version:           1.0.11
+Version:           1.0.12
 Author:            Fena
 Author URI:        https://www.fena.co
 Text Domain:       fena
