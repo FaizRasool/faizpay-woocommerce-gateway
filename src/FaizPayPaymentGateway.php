@@ -12,10 +12,10 @@ final class FaizPayPaymentGateway extends WC_Payment_Gateway
     public function __construct()
     {
         $this->id = 'faizpay_payment';
-        $this->method_title = 'FaizPay';
+        $this->method_title = 'Fena';
 
         $this->method_description = "Fast instant bank to bank payments";  // to backend
-        $this->order_button_text = 'Proceed to FaizPay';
+        $this->order_button_text = 'Proceed to Fena';
 
         $this->title = $this->get_option('title');
         $this->description = $this->get_option('description');

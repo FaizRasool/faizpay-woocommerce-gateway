@@ -9,7 +9,7 @@ class AdminPortalUI
     public static function get($settings)
     {
         ?>
-        <h2>FaizPay Payment Gateway</h2>
+        <h2>Fena Payment Gateway</h2>
         <table class="form-table">
             <?= $settings; ?>
         </table>

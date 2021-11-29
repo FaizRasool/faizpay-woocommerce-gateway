@@ -1,11 +1,11 @@
 {
   "name": "faizrasool/faizpay-payment-gateway",
-  "description": "FaizPay Payment Gateway",
+  "description": "Fena Payment Gateway",
   "license": "GPL-2.0-or-later",
   "authors": [
     {
       "name": "Faiz Rasool",
-      "email": "faiz@faizpay.com"
+      "email": "faiz@fean.com"
     }
   ],
   "minimum-stability": "dev",

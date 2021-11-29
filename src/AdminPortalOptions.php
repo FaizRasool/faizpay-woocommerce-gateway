@@ -13,7 +13,7 @@ class AdminPortalOptions
             'enabled' => array(
                 'title' => 'Enable/Disable',
                 'type' => 'checkbox',
-                'label' => 'Enable FaizPay Gateway',
+                'label' => 'Enable Fena Gateway',
                 'default' => 'yes'
             ),
             'terminal_id' => array(

@@ -41,9 +41,9 @@ class PaymentNotification
             die();
         }
 
-        $order->add_order_note("FaizPay Order ID {$notificationHandler->getId()}", 0);
-        $order->add_order_note("FaizPay Net Amount £{$notificationHandler->getNetAmount()}", 0);
-        $order->add_order_note("FaizPay Requested Amount £{$notificationHandler->getRequestedAmount()}", 0);
+        $order->add_order_note("Fena Order ID {$notificationHandler->getId()}", 0);
+        $order->add_order_note("Fena Net Amount £{$notificationHandler->getNetAmount()}", 0);
+        $order->add_order_note("Fena Requested Amount £{$notificationHandler->getRequestedAmount()}", 0);
         $order->payment_complete();
         exit();
     }

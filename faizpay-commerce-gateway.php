@@ -1,25 +1,25 @@
 <?php
 /*
-Plugin Name:       FaizPay Commerce
-Plugin URI:        https://github.com/FaizRasool/faizpay-woocommerce-gateway
-Description:       Enables the FaizPay as payment option on the woocommerce.
-Version:           1.0.10
-Author:            FaizPay
-Author URI:        https://www.faizpay.com
-Text Domain:       faizpay
+Plugin Name:       Fena Commerce
+Plugin URI:        https://github.com/fena-co/faizpay-woocommerce-gateway
+Description:       Enables the Fena as payment option on the woocommerce.
+Version:           1.0.11
+Author:            Fena
+Author URI:        https://www.fena.co
+Text Domain:       fena
 
-FaizPay Commerce Plugin is free software: you can redistribute it and/or modify
+Fena Commerce Plugin is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 any later version.
 
-FaizPay Commerce Plugin is distributed in the hope that it will be useful,
+Fena Commerce Plugin is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with FaizPay Commerce Plugin. If not, see https://www.gnu.org/licenses/gpl-3.0.html.
+along with Fena Commerce Plugin. If not, see https://www.gnu.org/licenses/gpl-3.0.html.
 */
 //  auto load
 if (!file_exists(plugin_dir_path(__FILE__) . 'vendor/autoload.php')) {
@@ -30,7 +30,7 @@ require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
 
 function faizpay_woocommerce_stripe_missing_wc_notice()
 {
-    echo '<div class="error"><p><strong>FaizPay requires WooCommerce to be installed and active. You can download <a href="https://woocommerce.com/" target="_blank">WooCommerce</a> from here.</strong></p></div>';
+    echo '<div class="error"><p><strong>Fena requires WooCommerce to be installed and active. You can download <a href="https://woocommerce.com/" target="_blank">WooCommerce</a> from here.</strong></p></div>';
 }
 
 

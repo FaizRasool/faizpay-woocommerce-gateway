@@ -10,8 +10,8 @@ This plugin is available on the [WordPress.org plugin repository], and can be in
 
 #### Within your WordPress dashboard
 1. Visit ‘Plugins > Add New’
-2. Search for ‘FaizPay Commerce’
-3. Activate FaizPay Commerce from your Plugins page.
+2. Search for ‘Fena Commerce’
+3. Activate Fena Commerce from your Plugins page.
 
 ### SVN Commands
 svn add --force * --auto-props --parents --depth infinity -q
