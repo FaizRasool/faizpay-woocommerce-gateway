@@ -1,12 +1,12 @@
 <?php
 
 
-namespace FaizPayCommerceGateway;
+namespace FenaCommerceGateway;
 
 
-use FaizPay\PaymentSDK\Connection;
-use FaizPay\PaymentSDK\Error;
-use FaizPay\PaymentSDK\NotificationHandler;
+use Fena\PaymentSDK\Connection;
+use Fena\PaymentSDK\Error;
+use Fena\PaymentSDK\NotificationHandler;
 
 class PaymentNotification
 {

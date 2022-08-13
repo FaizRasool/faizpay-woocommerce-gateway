@@ -1,17 +1,17 @@
 <?php
 
-namespace FaizPayCommerceGateway;
+namespace FenaCommerceGateway;
 
 use WC_Payment_Gateway;
 
-final class FaizPayPaymentGateway extends WC_Payment_Gateway
+final class FenaPaymentGateway extends WC_Payment_Gateway
 {
     private $terminal_id;
     private $terminal_secret;
 
     public function __construct()
     {
-        $this->id = 'faizpay_payment';
+        $this->id = 'fena_payment';
         $this->method_title = 'Fena';
 
         $this->method_description = "Fast instant bank to bank payments";  // to backend
@@ -38,7 +38,7 @@ final class FaizPayPaymentGateway extends WC_Payment_Gateway
 
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
 
-        add_action('woocommerce_api_faizpay', array($this, 'webhook'));
+        add_action('woocommerce_api_fena', array($this, 'webhook'));
 
         // https://rudrastyh.com/woocommerce/payment-gateway-plugin.html#gateway_options
         // https://rudrastyh.com/woocommerce/thank-you-page.html

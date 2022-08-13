@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FaizPayCommerceGateway;
+namespace FenaCommerceGateway;
 
 
 class AdminPortalUI
@@ -11,14 +11,14 @@ class AdminPortalUI
         ?>
         <h2>Fena Payment Gateway</h2>
         <table class="form-table">
-            <?= $settings; ?>
+            <?php echo $settings; ?>
         </table>
 
         <h4>Payment Notification URL</h4>
-        <pre><?= home_url('/wc-api/faizpay', 'https'); ?></pre>
+        <pre><?php echo home_url('/wc-api/fena', 'https'); ?></pre>
 
         <h4>Redirect URL</h4>
-        <pre><?= home_url('/checkout/order-received/', 'https'); ?></pre>
+        <pre><?php echo home_url('/checkout/order-received/', 'https'); ?></pre>
         <?php
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FaizPayCommerceGateway;
+namespace FenaCommerceGateway;
 
 
 class AdminPortalOptions
@@ -50,22 +50,14 @@ class AdminPortalOptions
 
     public static function validate($terminal_secret, $terminal_id)
     {
-        if (!self::validateUUID($terminal_secret)) {
+        if (!$terminal_secret) {
             \WC_Admin_Settings::add_error('Invalid Terminal Secret Given');
             return false;
         }
 
 
-        if (!self::validateUUID($terminal_id)) {
+        if (!$terminal_id) {
             \WC_Admin_Settings::add_error('Invalid Terminal ID Given');
-            return false;
-        }
-        return true;
-    }
-
-    private static function validateUUID($uuid)
-    {
-        if (!is_string($uuid) || (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/', $uuid) !== 1)) {
             return false;
         }
         return true;

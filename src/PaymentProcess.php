@@ -1,16 +1,16 @@
 <?php
 
 
-namespace FaizPayCommerceGateway;
+namespace FenaCommerceGateway;
 
 
-use FaizPay\PaymentSDK\Connection;
-use FaizPay\PaymentSDK\DeliveryAddress;
-use FaizPay\PaymentSDK\Error;
-use FaizPay\PaymentSDK\Helper\NumberFormatter;
-use FaizPay\PaymentSDK\Item;
-use FaizPay\PaymentSDK\Payment;
-use FaizPay\PaymentSDK\User;
+use Fena\PaymentSDK\Connection;
+use Fena\PaymentSDK\DeliveryAddress;
+use Fena\PaymentSDK\Error;
+use Fena\PaymentSDK\Helper\NumberFormatter;
+use Fena\PaymentSDK\Item;
+use Fena\PaymentSDK\Payment;
+use Fena\PaymentSDK\User;
 
 class PaymentProcess
 {
@@ -44,8 +44,8 @@ class PaymentProcess
 
         $payment = Payment::createPayment(
             $connection,
-            $order_id,
-            $order->get_total()
+            $order->get_total(),
+            $order_id
         );
 
         if ($payment instanceof Error) {
@@ -126,7 +126,7 @@ class PaymentProcess
             $payment->setDeliveryAddress($deliveryAddress);
         }
 
-        $url = $payment->process($redirectBrowser = false);
+        $url = $payment->process();
 
         $order->update_status('awaiting_payment', 'Awaiting payment');
 

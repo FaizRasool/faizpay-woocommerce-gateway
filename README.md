@@ -1,4 +1,4 @@
-# FaizPay Commerce for WooCommerce
+# Fena Commerce for WooCommerce
 
 A WooCommerce payment gateway that allows your customers to pay with instant bank transfer via FaizPay.
 

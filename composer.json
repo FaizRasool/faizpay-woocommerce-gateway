@@ -1,20 +1,20 @@
 {
-  "name": "faizrasool/faizpay-payment-gateway",
+  "name": "fena/fena-payment-gateway",
   "description": "Fena Payment Gateway",
   "license": "GPL-2.0-or-later",
   "authors": [
     {
-      "name": "Faiz Rasool",
-      "email": "faiz@fean.com"
+      "name": "Fena",
+      "email": "support@fena.co"
     }
   ],
   "minimum-stability": "dev",
   "require": {
-    "faizpay/php-payment-sdk": "dev-master"
+    "fena/php-payment-sdk": "dev-master"
   },
   "autoload": {
     "psr-4": {
-      "FaizPayCommerceGateway\\": "src"
+      "FenaCommerceGateway\\": "src"
     }
   }
 }

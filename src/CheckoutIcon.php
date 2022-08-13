@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FaizPayCommerceGateway;
+namespace FenaCommerceGateway;
 
 
 class CheckoutIcon

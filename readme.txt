@@ -1,11 +1,11 @@
 === Fena Payment Gateway for WooCommerce ===
-Contributors: Faiz Rasool
-Plugin URL: https://github.com/fena-co/faizpay-woocommerce-gateway
+Contributors: Fena
+Plugin URL: https://github.com/fena-co/fena-woocommerce-gateway
 Tags: fena, faizpay, woo, woocommerce, ecommerce, commerce, bank, HSBC, Barclay, Royal Bank of Scotland, RBS, Lloyds, Santander, Nationwide, Natwest
 Requires at least: 5.0
-Requires PHP: 7.0
-Tested up to: 5.6.2
-Stable tag: 1.1.4
+Requires PHP: 7.4
+Tested up to: 6.0
+Stable tag: 1.0.0
 License: GPLv2 or later
 
 == Description ==

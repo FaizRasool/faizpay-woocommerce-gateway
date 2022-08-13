@@ -1,12 +1,12 @@
 <?php
 
 
-namespace FaizPayCommerceGateway;
+namespace FenaCommerceGateway;
 
 
 class OrderComplete
 {
-    public static function title($old, FaizPayPaymentGateway $faizPayPaymentGateway)
+    public static function title($old, FenaPaymentGateway $faizPayPaymentGateway)
     {
         global $woocommerce;
 
