@@ -125,6 +125,7 @@ class PaymentProcess
         if ($deliveryAddress instanceof DeliveryAddress) {
             $payment->setDeliveryAddress($deliveryAddress);
         }
+        error_log( print_r($payment, true) );
 
         $url = $payment->process();
 

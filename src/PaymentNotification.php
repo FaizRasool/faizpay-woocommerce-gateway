@@ -6,30 +6,24 @@ namespace FenaCommerceGateway;
 
 use Fena\PaymentSDK\Connection;
 use Fena\PaymentSDK\Error;
-use Fena\PaymentSDK\NotificationHandler;
 
 class PaymentNotification
 {
 
     public static function process($terminal_id, $terminal_secret)
     {
-        if (!isset($_POST['token'])) {
+        $data = json_decode(file_get_contents('php://input'), true);
+
+        if (!isset($data['status'])) {
+            die();
+        }
+        if (!isset($data['reference'])) {
             die();
         }
 
-        $token  = sanitize_text_field($_POST['token']);
-
-        $connection = Connection::createConnection($terminal_id, $terminal_secret);
-        if ($connection instanceof Error) {
-            die();
-        }
-
-        $notificationHandler = NotificationHandler::createNotificationHandler($connection, $token);
-        if ($notificationHandler instanceof Error) {
-            die();
-        }
-
-        $orderId = $notificationHandler->getOrderID();
+        $orderId = $data['reference'];
+        $status = $data['status'];
+        $amount = $data['amount'];
 
         $order = new \WC_Order($orderId);
 
@@ -37,14 +31,16 @@ class PaymentNotification
             die();
         }
 
-        if (!$notificationHandler->validateAmount($order->get_total())) {
-            die();
+        if ($status == 'paid') {
+            error_log( "Should succeed" );
+            $order->add_order_note("Fena Order ID {$orderId}", 0);
+            $order->add_order_note("Fena Net Amount £{$amount}", 0);
+            $order->payment_complete();
         }
-
-        $order->add_order_note("Fena Order ID {$notificationHandler->getId()}", 0);
-        $order->add_order_note("Fena Net Amount £{$notificationHandler->getNetAmount()}", 0);
-        $order->add_order_note("Fena Requested Amount £{$notificationHandler->getRequestedAmount()}", 0);
-        $order->payment_complete();
+        if ($status == 'rejected') {
+            $order->add_order_note("The payment for id {$orderId} has been cancelled by the customer", 0);
+            $order->cancel_order();
+        }
         exit();
     }
 
