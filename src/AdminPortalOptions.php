@@ -17,7 +17,7 @@ class AdminPortalOptions
                 'default' => 'yes'
             ),
             'terminal_id' => array(
-                'title' => 'Terminal ID',
+                'title' => 'Integration ID',
                 'type' => 'text',
                 'description' => 'Enter the terminal ID Here.',
                 'default' => '',
@@ -25,7 +25,7 @@ class AdminPortalOptions
             ),
 
             'terminal_secret' => array(
-                'title' => 'Terminal Secret',
+                'title' => 'Integration Secret',
                 'type' => 'text',
                 'description' => 'Enter the terminal Secret Here',
                 'default' => '',
@@ -35,7 +35,7 @@ class AdminPortalOptions
                 'title' => 'Title',
                 'type' => 'text',
                 'description' => 'This controls the title which the user sees during checkout.',
-                'default' => 'Instant Bank Transfer',
+                'default' => 'Pay by bank',
                 'desc_tip' => true,
             ),
             'description' => array(

@@ -2,7 +2,7 @@
 /*
 Plugin Name:       Fena ECommerce
 Plugin URI:        https://github.com/fena-co/fena-woocommerce-gateway
-Description:       Enables the Fena as payment option on the woocommerce.
+Description:       Enables the Fena payment option on woocommerce.
 Version:           1.0.0
 Author:            Fena
 Author URI:        https://www.fena.co
